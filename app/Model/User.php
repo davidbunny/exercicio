@@ -11,7 +11,15 @@ class User extends AppModel {
  *
  * @var string
  */
-	public $displayField = 'name';
+	public $displayField = 'username';
+
+public function beforeSave($options = array()) {
+    if (isset($this->data[$this->alias]['password'])) {
+        $this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']);
+    }
+    return true;
+}
+
 
 /**
  * Validation rules
@@ -19,7 +27,7 @@ class User extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'name' => array(
+		'username' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',

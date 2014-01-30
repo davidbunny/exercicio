@@ -34,8 +34,8 @@ class ProductFixture extends CakeTestFixture {
 			'name' => 'Lorem ipsum dolor sit amet',
 			'value' => 1,
 			'quantity' => 1,
-			'created' => '2014-01-30 13:54:52',
-			'modified' => '2014-01-30 13:54:52'
+			'created' => '2014-01-30 18:33:36',
+			'modified' => '2014-01-30 18:33:36'
 		),
 	);
 

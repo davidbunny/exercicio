@@ -15,6 +15,12 @@ class ProductsController extends AppController {
  */
 	public $components = array('Paginator');
 
+public function logout() {
+    $this->redirect($this->Auth->logout());
+}
+
+
+
 /**
  * index method
  *

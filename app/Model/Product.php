@@ -13,6 +13,7 @@ class Product extends AppModel {
  */
 	public $displayField = 'name';
 
+
 /**
  * Validation rules
  *
@@ -30,8 +31,8 @@ class Product extends AppModel {
 			),
 		),
 		'value' => array(
-			'money' => array(
-				'rule' => array('money'),
+			'numeric' => array(
+				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,

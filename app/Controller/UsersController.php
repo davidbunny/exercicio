@@ -20,6 +20,25 @@ class UsersController extends AppController {
  *
  * @return void
  */
+ 
+ public function login() {
+    if ($this->Auth->login()) {
+    	return $this->redirect(array('controller' => 'products','action' => 'index'));
+        // $this->redirect($this->Auth->redirect('index'));
+    } else {
+        $this->Session->setFlash(__('Invalid username or password, try again'));
+    }
+}
+
+public function logout() {
+    $this->redirect($this->Auth->logout());
+}
+ 
+    public function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow('add', 'logout');
+    }
+  
 	public function index() {
 		$this->User->recursive = 0;
 		$this->set('users', $this->Paginator->paginate());
@@ -33,6 +52,7 @@ class UsersController extends AppController {
  * @return void
  */
 	public function view($id = null) {
+		$this->User->id = $id;
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
 		}
@@ -65,6 +85,7 @@ class UsersController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
+		$this->User->id = $id;		
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
 		}
