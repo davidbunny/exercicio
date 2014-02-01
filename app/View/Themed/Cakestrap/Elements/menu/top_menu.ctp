@@ -10,8 +10,15 @@
 	</div><!-- /.navbar-header -->
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
 		<ul class="nav navbar-nav">
-			<li><a href="<?= $this->base; ?>/users">Usuarios</a></li>
-			
+		
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuarios <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+			    	<li><a href="<?= $this->base; ?>/users/index">Listar</a></li>
+			    	<li><a href="<?= $this->base; ?>/users/logout">Logout</a></li>
+			 		
+				</ul>
+			</li>
 					
 			
 			<li class="dropdown">
